@@ -1,0 +1,12 @@
+fonts:
+  "RethinkSans-VariableFont_wght.ttf":
+    description: "modern geometric sans-serif clean minimal"
+    tags:
+      - geometric
+      - sans-serif
+      - modern
+      - minimal
+    characteristics:
+      x_height: "high"
+      contrast: "low"
+      style: "geometric"
