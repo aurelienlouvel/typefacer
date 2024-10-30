@@ -1,0 +1,13 @@
+services:
+  typefacer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: typefacer:dev
+    platform: linux/arm64
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    command: tail -f /dev/null # Garde le conteneur en vie
+    tty: true # Alloue un pseudo-TTY
+    stdin_open: true # Garde STDIN ouvert
