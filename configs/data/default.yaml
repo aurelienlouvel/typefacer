@@ -1,0 +1,6 @@
+data:
+  font_dir: "data/fonts"
+  train_dir: "data/fonts/train"
+  val_dir: "data/fonts/val"
+  batch_size: 32
+  num_workers: 4
