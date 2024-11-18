@@ -5,9 +5,12 @@ services:
       dockerfile: Dockerfile
     image: typefacer:dev
     platform: linux/arm64
+    ports:
+      - "8888:8888" # Expose le port pour Jupyter
     volumes:
-      - .:/app
-      - ./data:/app/data
-    command: tail -f /dev/null # Garde le conteneur en vie
+      - .:/app # Monte le répertoire local
+      - ./data:/app/data # Monte le répertoire des données
+    command: >
+      jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
     tty: true # Alloue un pseudo-TTY
     stdin_open: true # Garde STDIN ouvert

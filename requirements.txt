@@ -1,3 +1,5 @@
-lightning
 fonttools
 pyyaml
+torch
+matplotlib
+jupyter

@@ -81,7 +81,6 @@ class TensorProcessor:
                     x, y = coord  # Maintenant on peut unpack correctement
                     points.extend([float(x)/1000.0, float(y)/1000.0])
 
-                print(f"Points extraits: {len(points)//2}")
                 return points
             return []
 
@@ -116,15 +115,14 @@ if __name__ == "__main__":
     font_path = Path("data/fonts/train/RethinkSans-VariableFont_wght.ttf")
 
     if font_path.exists():
-        print("Processing font...")
         font = TTFont(font_path)
 
         tensor_processor = TensorProcessor()
         tensor_data = tensor_processor.process_font_to_tensor({'font': font})
 
-        print("\nTenseurs créés :")
-        for key, tensor in tensor_data.items():
-            print(f"{key}:")
-            print(f"  Shape: {tensor.shape}")
-            print(f"  Device: {tensor.device}")
-            print(f"  Type: {tensor.dtype}")
+        
+        # Print first glyph tensor
+        if tensor_data['glyphs'].shape[0] > 0:
+            first_glyph = tensor_data['glyphs'][4].cpu().numpy()
+            print("\nPremier glyphe (276 points) :")
+            print(first_glyph)

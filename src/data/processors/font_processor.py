@@ -48,9 +48,7 @@ class FontProcessor:
 
     def _get_font_description(self, font_name: str) -> Dict:
             return self.font_descriptions.get(font_name, {
-                'description': '',
                 'tags': [],
-                'characteristics': {}
             })
 
     def _extract_variation_axes(self, font: ttLib.TTFont) -> List[Dict[str, Any]]:
